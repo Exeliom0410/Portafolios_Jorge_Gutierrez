@@ -1,0 +1,6 @@
+{
+  "name": "Portafolio Jorge Gutierrez · Game Dev & 3D",
+  "description": "Portafolio interactivo estilo RPG / niveles de Jorge Gutierrez: Game Developer, Programador, Animador 3D y QA.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

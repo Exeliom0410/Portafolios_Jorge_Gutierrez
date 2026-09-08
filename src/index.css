@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+:root {
+  /* Paleta basada en la imagen de referencia: #00AB00 (Verde Arcade) y #2E332E (Grafito Oliva) */
+  --bg: #0f130f;
+  --bg-elevated: #161c16;
+  --surface: #1e261e;
+  --surface-2: #2E332E; /* Color exacto de la paleta */
+  --surface-3: #373f37;
+  --line: rgba(0, 171, 0, 0.22);
+  --line-strong: rgba(0, 171, 0, 0.45);
+  --accent: #00AB00; /* Color exacto de la paleta */
+  --accent-glow: #10e85a;
+  --accent-soft: rgba(0, 171, 0, 0.15);
+  --gold: #facc15;
+  --mint: #34d399;
+  --text: #f0f6f0;
+  --text-muted: #9eb19e;
+  --text-dim: #607560;
+  --radius: 14px;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Tipografías especiales del juego */
+.font-pixel {
+  font-family: 'Press Start 2P', monospace;
+}
+
+.font-display {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.font-mono-code {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+::selection {
+  background: var(--accent);
+  color: #0b0f0b;
+}
+
+/* Efecto de diamante retro */
+.pixel-diamond {
+  width: 14px;
+  height: 14px;
+  background: currentColor;
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  display: inline-block;
+}
+
+/* Pulsación del botón Press Start */
+@keyframes arcadePulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 171, 0, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 16px rgba(0, 171, 0, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 171, 0, 0);
+  }
+}
+
+.btn-arcade-pulse {
+  animation: arcadePulse 2.4s infinite;
+}
+
+/* Animación parpadeo cursor */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.cursor-blink {
+  animation: blink 1s infinite;
+}
+
+/* Animación de línea de scroll */
+@keyframes scrollDownAnim {
+  0% {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  50% {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+  51% {
+    transform: scaleY(1);
+    transform-origin: bottom;
+  }
+  100% {
+    transform: scaleY(0);
+    transform-origin: bottom;
+  }
+}
+
+.scroll-line-anim {
+  animation: scrollDownAnim 1.8s infinite;
+}
+
+/* Scanlines sutiles para toque retro arcade */
+.crt-overlay {
+  background: repeating-linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.12) 0px,
+    rgba(0, 0, 0, 0.12) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  pointer-events: none;
+}
+
