@@ -22,6 +22,12 @@ import { audio } from '../utils/audio';
 import { BrandIcon } from './BrandIcon';
 import { getLocalVideo, getLocalCover } from '../utils/videoStorage';
 
+const getYouTubeId = (url?: string | null): string | null => {
+  if (!url) return null;
+  const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/);
+  return match ? match[1] : null;
+};
+
 export const WorldCreative3D: React.FC = () => {
   const { proyectos3D } = PORTFOLIO_CONFIG;
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -40,7 +46,21 @@ export const WorldCreative3D: React.FC = () => {
   const activeCustomCover = customCovers[currentProject.id];
   const activeCustomLink = customLinks[currentProject.id];
 
-  const hasVideo = Boolean(currentProject.videoUrl || activeCustomVideo);
+  const validCustomLink =
+    activeCustomLink &&
+    activeCustomLink !== '#' &&
+    activeCustomLink !== 'https://www.youtube.com' &&
+    activeCustomLink !== 'https://youtube.com'
+      ? activeCustomLink
+      : null;
+
+  const activeVideoLink =
+    validCustomLink || currentProject.linkVideoExterno || currentProject.videoUrl || 'https://www.youtube.com';
+
+  const youtubeId = getYouTubeId(activeVideoLink);
+  const activeVideoSource = activeCustomVideo || currentProject.videoUrl;
+  const activeCoverSource = activeCustomCover || currentProject.imagen;
+  const hasVideo = Boolean(activeVideoSource || youtubeId);
 
   // Cargar videos, carátulas y enlaces guardados (anclados permanentemente de los cambios previos)
   useEffect(() => {
@@ -98,11 +118,6 @@ export const WorldCreative3D: React.FC = () => {
     audio.playBlip();
     setCurrentIndex(idx);
   };
-
-  const activeVideoSource = activeCustomVideo || currentProject.videoUrl;
-  const activeCoverSource = activeCustomCover || currentProject.imagen;
-  const activeVideoLink =
-    activeCustomLink || currentProject.linkVideoExterno || currentProject.videoUrl || 'https://www.youtube.com';
 
   const isVfxProject = currentProject.categoria.includes('VFX') || currentProject.id.includes('vfx');
 
@@ -191,7 +206,18 @@ export const WorldCreative3D: React.FC = () => {
             {/* Columna Izquierda: Video Player o Portada / Render */}
             <div className="lg:col-span-7 relative aspect-[16/10] sm:aspect-[16/9] lg:aspect-auto lg:min-h-[460px] bg-[#0c100c] overflow-hidden group flex items-center justify-center">
               {viewMode === 'video' ? (
-                hasVideo && !videoError && activeVideoSource ? (
+                youtubeId ? (
+                  /* Reproductor YouTube embebido sin cookies de rastreo */
+                  <div className="relative w-full h-full min-h-[350px] sm:min-h-[440px] flex items-center justify-center bg-[#0a0d0a]">
+                    <iframe
+                      src={`https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&rel=0&modestbranding=1`}
+                      title={currentProject.titulo}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                      className="w-full h-full min-h-[350px] sm:min-h-[440px] border-0"
+                    />
+                  </div>
+                ) : hasVideo && !videoError && activeVideoSource ? (
                   <div className="relative w-full h-full flex items-center justify-center bg-[#0a0d0a]">
                     <video
                       ref={videoRef}
@@ -220,7 +246,7 @@ export const WorldCreative3D: React.FC = () => {
                     </h4>
                     <p className="text-xs text-[#9eb19e] max-w-sm mb-6 leading-relaxed">
                       {isVfxProject
-                        ? 'Demostración de efectos visuales y shaders en tiempo real.'
+                        ? 'Demostración del efecto Bola de Fuego y shaders en tiempo real.'
                         : 'Demostración de animación 3D y cinemática en Unity.'}
                     </p>
                     <a
@@ -231,7 +257,7 @@ export const WorldCreative3D: React.FC = () => {
                       className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#00AB00] hover:bg-[#10e85a] text-[#0c0f0c] font-mono-code text-xs font-bold transition-all shadow-[0_0_20px_rgba(0,171,0,0.4)] cursor-pointer"
                     >
                       <Play className="w-4 h-4 fill-current" />
-                      <span>{isVfxProject ? 'VER VIDEO DE LOS EFECTOS' : 'VER VIDEO DE LA ANIMACIÓN'}</span>
+                      <span>{isVfxProject ? 'VER BOLA DE FUEGO EN YOUTUBE' : 'VER ANIMACIÓN BÚHO EN YOUTUBE'}</span>
                       <ExternalLink className="w-3.5 h-3.5" />
                     </a>
                   </div>
@@ -248,19 +274,28 @@ export const WorldCreative3D: React.FC = () => {
                   <div className="absolute inset-0 crt-overlay opacity-25 pointer-events-none" />
 
                   {/* Botón central para reproducir/ver video sobre la portada */}
-                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none gap-2 sm:gap-3">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        audio.playStart();
+                        setViewMode('video');
+                      }}
+                      className="pointer-events-auto inline-flex items-center gap-2 px-4 sm:px-5 py-3 rounded-2xl bg-[#0f130f]/90 hover:bg-[#00AB00] text-[#00AB00] hover:text-[#0c0f0c] border-2 border-[#00AB00] font-mono-code text-xs font-bold transition-all shadow-[0_0_25px_rgba(0,171,0,0.5)] hover:scale-105 cursor-pointer"
+                      title="Reproducir aquí"
+                    >
+                      <Play className="w-4 h-4 fill-current" />
+                      <span>REPRODUCIR DEMO</span>
+                    </button>
                     <a
                       href={activeVideoLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      onClick={() => audio.playStart()}
-                      className="pointer-events-auto inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-[#0f130f]/90 hover:bg-[#00AB00] text-[#00AB00] hover:text-[#0c0f0c] border-2 border-[#00AB00] font-mono-code text-xs font-bold transition-all shadow-[0_0_25px_rgba(0,171,0,0.5)] hover:scale-105"
+                      onClick={() => audio.playBlip()}
+                      className="pointer-events-auto p-3 rounded-2xl bg-[#0f130f]/90 hover:bg-[#00AB00] text-[#9eb19e] hover:text-[#0c0f0c] border border-[#00AB00]/40 hover:border-[#00AB00] transition-all hover:scale-105 shadow-md"
+                      title="Abrir en YouTube en nueva pestaña"
                     >
-                      <Play className="w-4 h-4 fill-current" />
-                      <span>
-                        {isVfxProject ? 'VER VIDEO DE LOS EFECTOS' : 'VER VIDEO DE LA ANIMACIÓN'}
-                      </span>
-                      <ExternalLink className="w-3.5 h-3.5" />
+                      <ExternalLink className="w-4 h-4" />
                     </a>
                   </div>
 
@@ -387,7 +422,7 @@ export const WorldCreative3D: React.FC = () => {
                   >
                     <Play className="w-5 h-5 fill-current group-hover:scale-110 transition-transform" />
                     <span>
-                      {isVfxProject ? 'VER VIDEO DE LOS EFECTOS' : 'VER VIDEO DE LA ANIMACIÓN'}
+                      {isVfxProject ? 'VER BOLA DE FUEGO EN YOUTUBE' : 'VER ANIMACIÓN BÚHO EN YOUTUBE'}
                     </span>
                     <ExternalLink className="w-4 h-4 opacity-80 ml-1" />
                   </a>
@@ -398,7 +433,7 @@ export const WorldCreative3D: React.FC = () => {
                       <span className="truncate">{activeVideoLink.replace(/^https?:\/\//, '')}</span>
                     </span>
                     <span className="text-[#34d399] text-[10px] font-semibold uppercase tracking-wider shrink-0">
-                      {isVfxProject ? 'VFX Stream' : 'Anim Stream'}
+                      {isVfxProject ? 'VFX Bola de Fuego' : 'Búho 3D Blender'}
                     </span>
                   </div>
                 </div>

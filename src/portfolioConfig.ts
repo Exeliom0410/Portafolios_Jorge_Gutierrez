@@ -109,7 +109,7 @@ export const PORTFOLIO_CONFIG: PortfolioConfig = {
       descripcion: "Diseño, esqueleto dinámico y animación de personaje alado estilizado en Blender exportado a Unity. Configuración de clips en el Animator Controller ('Búho de pie', 'Búho aterrizaje' y 'Búho despegando') con aleteo reactivo e interpolación fluida para videojuegos.",
       imagen: "/images/image.png",
       videoUrl: "/videos/buho-animacion.mp4",
-      linkVideoExterno: "https://www.youtube.com", // Reemplaza este enlace con la URL de tu video (YouTube, Vimeo, Google Drive, etc.)
+      linkVideoExterno: "https://youtu.be/izf2wHtuzOs", // Enlace de YouTube de la animación del Búho
       detallesTecnicos: {
         titulo: "Clips de Animación en Unity Animator:",
         items: [
@@ -122,13 +122,13 @@ export const PORTFOLIO_CONFIG: PortfolioConfig = {
     },
     {
       id: "unity-vfx-efectos-especiales",
-      titulo: "Efectos Especiales en Unity (VFX & Shaders)",
+      titulo: "Efectos Especiales en Unity (VFX Bola de Fuego & Shaders)",
       categoria: "VFX & Efectos Especiales",
       herramientas: ["Unity Engine", "VFX Graph", "Shader Graph", "Particle System", "Post-Processing", "URP"],
-      descripcion: "Diseño e integración de efectos visuales (VFX) en tiempo real desarrollados en Unity. Implementación de shaders dinámicos mediante Shader Graph, simulación de partículas GPU, ondas de choque, chispas e iluminación volumétrica optimizados para videojuegos.",
+      descripcion: "Diseño e integración de efectos visuales (VFX) en tiempo real desarrollados en Unity. Implementación del efecto de Bola de Fuego, simulación de partículas GPU, ondas de choque, chispas e iluminación volumétrica optimizados para videojuegos.",
       imagen: "/images/vfx_portada.png",
       videoUrl: "/videos/unity-vfx.mp4",
-      linkVideoExterno: "https://www.youtube.com", // Reemplaza este enlace con la URL del video de tus efectos especiales
+      linkVideoExterno: "https://youtu.be/y_ANaJj5-Xg", // Enlace de YouTube de la Bola de Fuego VFX
       detallesTecnicos: {
         titulo: "Módulos y Sistemas de Efectos VFX en Unity:",
         items: [
