@@ -17,7 +17,7 @@ export interface WorldSection {
 export const WORLD_SECTIONS: WorldSection[] = [
   { id: 'inicio', level: 'START', label: 'INICIO', shortLabel: 'Inicio' },
   { id: 'mundo-01', level: 'MUNDO 01', label: 'SOBRE MÍ', shortLabel: 'Sobre Mí' },
-  { id: 'mundo-02', level: 'MUNDO 02', label: 'PROYECTOS (DEV)', shortLabel: 'Proyectos' },
+  { id: 'mundo-02', level: 'MUNDO 02', label: 'PROYECTO (DEV)', shortLabel: 'Proyecto' },
   { id: 'mundo-03', level: 'MUNDO 03', label: 'ANIMACIÓN 3D', shortLabel: '3D Art' },
   { id: 'mundo-04', level: 'MUNDO 04', label: 'INVENTARIO', shortLabel: 'Skills' },
   { id: 'mundo-05', level: 'MUNDO 05', label: 'GUARDAR', shortLabel: 'Guardar' },
