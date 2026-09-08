@@ -39,6 +39,7 @@ export const WorldCreative3D: React.FC = () => {
   const [customLinks, setCustomLinks] = useState<Record<string, string>>({});
   const [videoError, setVideoError] = useState(false);
   const [imageError, setImageError] = useState(false);
+  const [imageFallbackAttempted, setImageFallbackAttempted] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const currentProject = proyectos3D[currentIndex] || proyectos3D[0];
@@ -88,6 +89,7 @@ export const WorldCreative3D: React.FC = () => {
   useEffect(() => {
     setVideoError(false);
     setImageError(false);
+    setImageFallbackAttempted(false);
     if (activeCustomCover || currentProject.imagen) {
       setViewMode('render');
     } else if (activeCustomVideo || currentProject.videoUrl) {
@@ -268,7 +270,14 @@ export const WorldCreative3D: React.FC = () => {
                   <img
                     src={activeCoverSource}
                     alt={currentProject.titulo}
-                    onError={() => setImageError(true)}
+                    onError={(e) => {
+                      if (!imageFallbackAttempted && youtubeId) {
+                        setImageFallbackAttempted(true);
+                        (e.target as HTMLImageElement).src = `https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg`;
+                      } else {
+                        setImageError(true);
+                      }
+                    }}
                     className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 crt-overlay opacity-25 pointer-events-none" />
@@ -501,7 +510,13 @@ export const WorldCreative3D: React.FC = () => {
                         alt={proj.titulo}
                         className="w-full h-full object-cover"
                         onError={(e) => {
-                          (e.target as HTMLElement).style.display = 'none';
+                          const yt = getYouTubeId(proj.linkVideoExterno);
+                          const target = e.target as HTMLImageElement;
+                          if (yt && !target.src.includes('youtube') && !target.src.includes('ytimg')) {
+                            target.src = `https://img.youtube.com/vi/${yt}/hqdefault.jpg`;
+                          } else {
+                            target.style.display = 'none';
+                          }
                         }}
                       />
                     ) : (

@@ -107,8 +107,8 @@ export const PORTFOLIO_CONFIG: PortfolioConfig = {
       categoria: "Animación & Rigging 3D",
       herramientas: ["Blender", "Unity Engine", "Animator Controller", "Rigging", "Weight Painting"],
       descripcion: "Diseño, esqueleto dinámico y animación de personaje alado estilizado en Blender exportado a Unity. Configuración de clips en el Animator Controller ('Búho de pie', 'Búho aterrizaje' y 'Búho despegando') con aleteo reactivo e interpolación fluida para videojuegos.",
-      imagen: "/images/image.png",
-      videoUrl: "/videos/buho-animacion.mp4",
+      imagen: "./images/image.png",
+      videoUrl: "./videos/buho-animacion.mp4",
       linkVideoExterno: "https://youtu.be/izf2wHtuzOs", // Enlace de YouTube de la animación del Búho
       detallesTecnicos: {
         titulo: "Clips de Animación en Unity Animator:",
@@ -126,8 +126,8 @@ export const PORTFOLIO_CONFIG: PortfolioConfig = {
       categoria: "VFX & Efectos Especiales",
       herramientas: ["Unity Engine", "VFX Graph", "Shader Graph", "Particle System", "Post-Processing", "URP"],
       descripcion: "Diseño e integración de efectos visuales (VFX) en tiempo real desarrollados en Unity. Implementación del efecto de Bola de Fuego, simulación de partículas GPU, ondas de choque, chispas e iluminación volumétrica optimizados para videojuegos.",
-      imagen: "/images/vfx_portada.png",
-      videoUrl: "/videos/unity-vfx.mp4",
+      imagen: "./images/vfx_portada.png",
+      videoUrl: "./videos/unity-vfx.mp4",
       linkVideoExterno: "https://youtu.be/y_ANaJj5-Xg", // Enlace de YouTube de la Bola de Fuego VFX
       detallesTecnicos: {
         titulo: "Módulos y Sistemas de Efectos VFX en Unity:",
@@ -194,7 +194,7 @@ export const PORTFOLIO_CONFIG: PortfolioConfig = {
     telefono: "+56 9 8418 8621",
     ubicacion: "Villa La Obra 1 Gabriela, Santiago, Chile",
     disponibilidad: "Disponible Part-time (complementario con estudios) · Remoto o presencial",
-    cvUrl: "/cv-jorge-gutierrez.pdf",
+    cvUrl: "./cv-jorge-gutierrez.pdf",
   },
 
   // URL por defecto que se codifica en el código QR interactivo
