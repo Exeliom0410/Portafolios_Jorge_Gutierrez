@@ -35,7 +35,12 @@ export interface Creative3DProject {
   descripcion: string;
   imagen: string;
   videoUrl?: string; // YouTube o MP4
-  plataformas: {
+  linkVideoExterno?: string; // Enlace directo a YouTube / Drive / Vimeo
+  detallesTecnicos?: {
+    titulo: string;
+    items: { nombre: string; color: string }[];
+  };
+  plataformas?: {
     nombre: string;
     url: string;
     icono?: string;
@@ -70,7 +75,7 @@ export interface PortfolioConfig {
   stats: StatItem[];
   proyectosProgramacion: ProgrammingProject[];
   proyectos3D: Creative3DProject[];
-  plataformasGenerales3D: {
+  plataformasGenerales3D?: {
     nombre: string;
     url: string;
     descripcion: string;
@@ -80,6 +85,7 @@ export interface PortfolioConfig {
   contacto: {
     intro: string;
     email: string;
+    telefono?: string;
     ubicacion: string;
     disponibilidad: string;
     cvUrl: string;

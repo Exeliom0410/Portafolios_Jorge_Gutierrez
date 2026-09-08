@@ -93,119 +93,57 @@ export const PORTFOLIO_CONFIG: PortfolioConfig = {
       linkJugar: "https://hell-team.itch.io/hell-breezer",
       linkCodigo: "https://github.com/Exeliom0410",
       linkDoc: "https://hell-team.itch.io/hell-breezer"
-    },
-    {
-      id: "combat-system-core",
-      titulo: "Modular Combat & Controller Core",
-      tags: ["C#", "Unity", "Architecture", "Input System", "QA Testing"],
-      descripcion: "Framework modular de controlador de personajes 2.5D/3D con soporte para el nuevo Input System de Unity, gestión de estamina, dashes con invulnerabilidad (i-frames) y detección precisa de colisiones.",
-      caracteristicasTecnicas: [
-        "Desacoplamiento mediante Scriptable Objects y Event-Driven architecture",
-        "Control de coyote time, jump buffering y curvas de aceleración personalizada",
-        "Suit de pruebas unitarias y validaciones de testing QA para bugs de movimiento"
-      ],
-      imagen: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=900&q=80",
-      linkCodigo: "https://github.com/Exeliom0410",
-    },
-    {
-      id: "enemy-ai-pathfinding",
-      titulo: "Enemy AI & Behavior Tree System",
-      tags: ["C#", "Unity", "IA de Juegos", "NavMesh / Grid", "Algoritmos"],
-      descripcion: "Sistema de Inteligencia Artificial para enemigos con árboles de comportamiento, patrullaje, detección por conos de visión y oído, y transición a estados de alerta, persecución y flanqueo.",
-      caracteristicasTecnicas: [
-        "Nodos modulares de Behavior Tree reusables en cualquier tipo de enemigo",
-        "Optimizador de búsqueda de caminos en tiempo real con evasión de obstáculos",
-        "Gestor de agresividad grupal para evitar ataques simultáneos caóticos"
-      ],
-      imagen: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=900&q=80",
-      linkCodigo: "https://github.com/Exeliom0410",
     }
   ],
 
   // ==========================================================================
-  // 5. MUNDO 03: PROYECTOS CREATIVOS (ANIMACIÓN 3D)
-  // Con carrusel interactivo, visor de renders/modelos y enlaces a tus plataformas
-  // (ArtStation, Sketchfab, YouTube, Instagram, etc.).
+  // 5. MUNDO 03: PROYECTOS CREATIVOS (ANIMACIÓN 3D & VFX UNITY)
+  // Con carrusel interactivo, visor de renders/capturas, botón de video externo y fichas técnicas.
   // ==========================================================================
   proyectos3D: [
     {
-      id: "3d-character-rig-action",
-      titulo: "Rigging y Ciclo de Combate de Personaje",
-      categoria: "Animación de Personajes 3D",
-      herramientas: ["Blender 4.0", "Rigify", "Graph Editor", "FBX Unity Pipeline"],
-      descripcion: "Creación completa de esqueleto dinámico, control de cinemática inversa (IK/FK switches), curvas de timing y espaciado para un set de combate: idle reactivo, ataque pesado con arco de anticipación y recuperación estilizada.",
-      imagen: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80",
-      plataformas: [
-        { nombre: "ArtStation", url: "https://www.artstation.com", icono: "🎨" },
-        { nombre: "Sketchfab", url: "https://sketchfab.com", icono: "🧊" },
-        { nombre: "YouTube Reel", url: "https://youtube.com", icono: "▶️" }
-      ]
+      id: "buho-animacion-blender-unity",
+      titulo: "Animación de Búho 3D (Blender → Unity)",
+      categoria: "Animación & Rigging 3D",
+      herramientas: ["Blender", "Unity Engine", "Animator Controller", "Rigging", "Weight Painting"],
+      descripcion: "Diseño, esqueleto dinámico y animación de personaje alado estilizado en Blender exportado a Unity. Configuración de clips en el Animator Controller ('Búho de pie', 'Búho aterrizaje' y 'Búho despegando') con aleteo reactivo e interpolación fluida para videojuegos.",
+      imagen: "/images/image.png",
+      videoUrl: "/videos/buho-animacion.mp4",
+      linkVideoExterno: "https://www.youtube.com", // Reemplaza este enlace con la URL de tu video (YouTube, Vimeo, Google Drive, etc.)
+      detallesTecnicos: {
+        titulo: "Clips de Animación en Unity Animator:",
+        items: [
+          { nombre: "Búho de pie (Idle)", color: "#00AB00" },
+          { nombre: "Búho despegando (Flap)", color: "#facc15" },
+          { nombre: "Búho aterrizaje", color: "#34d399" },
+          { nombre: "Cinemática de Alas", color: "#60a5fa" },
+        ],
+      },
     },
     {
-      id: "3d-creature-run-cycle",
-      titulo: "Animación de Criatura Cuadrúpeda & Run Cycle",
-      categoria: "Locomoción & Cinemática",
-      herramientas: ["Blender", "Keyframe Animation", "Weight Painting"],
-      descripcion: "Estudio de peso, inercia de columna vertebral y overlapping action en colas y orejas para una bestia cuadrúpeda de fantasía, optimizado para interpolación limpia en motores de videojuego en tiempo real.",
-      imagen: "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=1200&q=80",
-      plataformas: [
-        { nombre: "ArtStation", url: "https://www.artstation.com", icono: "🎨" },
-        { nombre: "Sketchfab", url: "https://sketchfab.com", icono: "🧊" }
-      ]
+      id: "unity-vfx-efectos-especiales",
+      titulo: "Efectos Especiales en Unity (VFX & Shaders)",
+      categoria: "VFX & Efectos Especiales",
+      herramientas: ["Unity Engine", "VFX Graph", "Shader Graph", "Particle System", "Post-Processing", "URP"],
+      descripcion: "Diseño e integración de efectos visuales (VFX) en tiempo real desarrollados en Unity. Implementación de shaders dinámicos mediante Shader Graph, simulación de partículas GPU, ondas de choque, chispas e iluminación volumétrica optimizados para videojuegos.",
+      imagen: "/images/vfx_portada.png",
+      videoUrl: "/videos/unity-vfx.mp4",
+      linkVideoExterno: "https://www.youtube.com", // Reemplaza este enlace con la URL del video de tus efectos especiales
+      detallesTecnicos: {
+        titulo: "Módulos y Sistemas de Efectos VFX en Unity:",
+        items: [
+          { nombre: "Sistemas de Partículas GPU", color: "#00AB00" },
+          { nombre: "Shader Graph Dinámico", color: "#facc15" },
+          { nombre: "Ondas de Choque & Distorsión", color: "#60a5fa" },
+          { nombre: "Post-Processing & Bloom", color: "#ec4899" },
+        ],
+      },
     },
-    {
-      id: "3d-props-diorama",
-      titulo: "Diorama Sci-Fi & Animación Mecánica de Props",
-      categoria: "Props 3D & Entornos",
-      herramientas: ["Blender", "Hard Surface", "Cycles Render", "Substance"],
-      descripcion: "Modelado hard-surface y animación de compuertas hidráulicas, turbinas y efectos de partículas cinemáticas para un escenario de juego de ciencia ficción con iluminación volumétrica.",
-      imagen: "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=1200&q=80",
-      plataformas: [
-        { nombre: "Sketchfab", url: "https://sketchfab.com", icono: "🧊" },
-        { nombre: "ArtStation", url: "https://www.artstation.com", icono: "🎨" }
-      ]
-    },
-    {
-      id: "3d-cutscene-cinematic",
-      titulo: "Cinemática de Presentación & Expresiones Faciales",
-      categoria: "Cutscene & Acting 3D",
-      herramientas: ["Blender", "Shape Keys", "Camera Rig", "Lighting"],
-      descripcion: "Animación dramática de cámara, expresiones gestuales mediante shape keys y sincronización rítmica para una secuencia cinemática de introducción de jefe de nivel.",
-      imagen: "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=1200&q=80",
-      plataformas: [
-        { nombre: "YouTube", url: "https://youtube.com", icono: "▶️" },
-        { nombre: "ArtStation", url: "https://www.artstation.com", icono: "🎨" }
-      ]
-    }
   ],
 
-  // Plataformas donde subes tu portafolio 3D completo
-  plataformasGenerales3D: [
-    {
-      nombre: "ArtStation",
-      url: "https://www.artstation.com",
-      descripcion: "Galería de renders en alta resolución y breakdowns",
-      icono: "🎨"
-    },
-    {
-      nombre: "Sketchfab",
-      url: "https://sketchfab.com",
-      descripcion: "Modelos 3D interactivos con visor en tiempo real",
-      icono: "🧊"
-    },
-    {
-      nombre: "YouTube Channel",
-      url: "https://youtube.com",
-      descripcion: "Demoreels de animación, playbacks y breakdowns técnicos",
-      icono: "📺"
-    },
-    {
-      nombre: "Instagram / TikTok",
-      url: "https://instagram.com",
-      descripcion: "WIPs diarios, avances de animación y pruebas rápidas",
-      icono: "📱"
-    }
-  ],
+  // Portafolios y perfiles 3D externos (Desactivados temporalmente)
+  // Si en el futuro creas perfiles en ArtStation, Sketchfab o YouTube, puedes agregarlos aquí.
+  plataformasGenerales3D: [],
 
   // ==========================================================================
   // 6. MUNDO 04: INVENTARIO DE HABILIDADES
@@ -252,10 +190,11 @@ export const PORTFOLIO_CONFIG: PortfolioConfig = {
   // ==========================================================================
   contacto: {
     intro: "Escríbeme si tienes un proyecto, una vacante o simplemente quieres hablar de desarrollo de videojuegos, programación o animación 3D. Suelo responder en menos de 48 horas.",
-    email: "Jorge.gutierrez.leiva.1928@gmail.com",
-    ubicacion: "Santiago, Chile — disponible remoto o presencial",
-    disponibilidad: "Freelance & tiempo completo",
-    cvUrl: "#", // Reemplaza '#' por el link directo a tu PDF en Google Drive o Dropbox
+    email: "jorge.gutierrez.leiva.1928@gmail.com",
+    telefono: "+56 9 8418 8621",
+    ubicacion: "Villa La Obra 1 Gabriela, Santiago, Chile",
+    disponibilidad: "Disponible Part-time (complementario con estudios) · Remoto o presencial",
+    cvUrl: "/cv-jorge-gutierrez.pdf",
   },
 
   // URL por defecto que se codifica en el código QR interactivo
