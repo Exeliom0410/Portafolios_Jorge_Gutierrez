@@ -81,7 +81,7 @@ export const PORTFOLIO_CONFIG: PortfolioConfig = {
       id: "hell-breezer",
       titulo: "Hell Breezer",
       tags: ["C#", "Unity 2D", "Beat 'em up", "Combate Fluido", "State Machine"],
-      descripcion: "Videojuego de acción que se centra en la venganza de un alma rota y que buscará cualquier medio para conseguirla. Implementación de combo systems, hitboxes dinámicas, control de inercia y control de estados de combate.",
+      descripcion: "Videojuego de acción que se centra en la venganza de un alma rota y que buscará cualquier medio para conseguirla. Proyecto realizado con un equipo de 3 personas",
       caracteristicasTecnicas: [
         "Arquitectura de Máquina de Estados Finita (FSM) para animaciones e inputs",
         "Sistema de combos con buffers de entrada y cancelación de frames",
