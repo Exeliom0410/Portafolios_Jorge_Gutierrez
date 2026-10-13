@@ -58,7 +58,7 @@ export const PORTFOLIO_CONFIG: PortfolioConfig = {
 
   // Párrafos de tu biografía (puedes añadir más líneas entre comillas separadas por coma)
   bio: [
-    "Estoy estudiando para ser desarrollador de videojuegos con experiencia creando prototipos y proyectos completos en Unity. Me obsesiona el 'game feel': ese momento en que los controles simplemente se sienten fluidos y precisos.",
+    "Estoy estudiando para ser desarrollador de videojuegos con experiencia creando prototipos y proyectos completos en Unity. Me obcesiona buscar que el usuario se sienta bien jugando",
     "Disfruto tanto la arquitectura de código y lógica de gameplay como la animación 3D. Me encanta colaborar en proyectos de equipo, aportar soluciones técnicas y seguir aprendiendo en cada desafío."
   ],
 
@@ -156,7 +156,7 @@ export const PORTFOLIO_CONFIG: PortfolioConfig = {
       categoria: "Lenguajes",
       items: [
         { icon: "💻", label: "C#", nivel: "Principal", descripcion: "Gameplay programming, Unity API, POO y patrones de diseño" },
-        { icon: "⚡", label: "HLSL / Shaders", nivel: "Intermedio", descripcion: "Efectos visuales de pantalla, distorsiones y shaders 2D/3D" }
+        { icon: "⚡", label: "HLSL / Shaders", nivel: "Básico", descripcion: "Efectos visuales de pantalla, distorsiones y shaders 2D/3D" }
       ]
     },
     {
@@ -177,7 +177,7 @@ export const PORTFOLIO_CONFIG: PortfolioConfig = {
     {
       categoria: "Gestión, Versionado & QA",
       items: [
-        { icon: "🗂️", label: "GitHub / Git", nivel: "Avanzado", descripcion: "Control de versiones, branching, tags y commits limpios" },
+        { icon: "🗂️", label: "GitHub", nivel: "Intermedio", descripcion: "Control de versiones, branching, tags y commits limpios" },
         { icon: "📜", label: "Jira", nivel: "Intermedio", descripcion: "Gestión ágil de tareas, sprints y seguimiento de bugs" },
         { icon: "📊", label: "Excel", nivel: "Básico", descripcion: "Organización de datos, tablas de balance, presupuestos y control de avance" },
         { icon: "🔍", label: "QA & Bug Tracking", nivel: "Avanzado", descripcion: "Pruebas de regresión, documentación y test cases de gameplay" }
