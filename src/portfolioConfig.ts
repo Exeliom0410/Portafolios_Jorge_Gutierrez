@@ -88,7 +88,7 @@ export const PORTFOLIO_CONFIG: PortfolioConfig = {
         "Cálculo de impacto y feedback de daño (hitstop, screen shake, knockback)",
         "Lógica de spawning y oleadas de enemigos con comportamientos reactivos"
       ],
-      imagen: "https://img.itch.zone/aW1hZ2UvMzk1MTgyOC8yMzU2MDE3MC5wbmc=/original/DRDooo.png",
+      imagen: "./images/hell_breezer.jpg",
       videoYoutubeId: "", // Si tienes un video en YouTube coloca el ID aquí (ej: "M7lc1UVf-VE")
       linkJugar: "https://hell-team.itch.io/hell-breezer",
       linkCodigo: "https://github.com/Exeliom0410",
