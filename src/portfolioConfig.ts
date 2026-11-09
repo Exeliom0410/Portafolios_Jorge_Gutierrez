@@ -50,10 +50,10 @@ export const PORTFOLIO_CONFIG: PortfolioConfig = {
   // ==========================================================================
   avatar: {
     // URL de tu foto de perfil o avatar (cuadrada o proporción 1:1 recomendada)
-    src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7WnGZvhSajVF27bf6VE5lr5RXgBqMsANls278sDlSxA&s=10",
+    src: "./images/jorge_perfil.jpg",
     
-    // Insignia que aparece sobre la foto (ej: LV. 25, LV. 99, EXP MAX)
-    badge: "LV. 25",
+    // Insignia que aparece sobre la foto (ej: LV. 22, LV. 99, EXP MAX)
+    badge: "LV. 22",
   },
 
   // Párrafos de tu biografía (puedes añadir más líneas entre comillas separadas por coma)

@@ -42,8 +42,14 @@ export const WorldAbout: React.FC = () => {
                 <img
                   id="avatarImg"
                   src={avatar.src}
-                  alt="Foto de perfil"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  alt="Foto de perfil de Jorge Gutierrez"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    if (!target.src.includes('aistudio')) {
+                      target.src = './assets/aistudio/IMG-20260910-WA0017_a95eb70f.jpg';
+                    }
+                  }}
+                  className="w-full h-full object-cover object-[center_25%] transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"
                 />
                 <div className="absolute inset-0 crt-overlay opacity-30 pointer-events-none" />
