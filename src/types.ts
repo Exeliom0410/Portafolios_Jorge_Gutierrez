@@ -40,6 +40,16 @@ export interface Creative3DProject {
     titulo: string;
     items: { nombre: string; color: string }[];
   };
+  clipsVideo?: {
+    id: string;
+    label: string;
+    url: string;
+    descripcion?: string;
+  }[];
+  documentacion?: {
+    seccion: string;
+    contenido: string;
+  }[];
   plataformas?: {
     nombre: string;
     url: string;

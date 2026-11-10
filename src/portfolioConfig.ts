@@ -20,7 +20,7 @@ export const PORTFOLIO_CONFIG: PortfolioConfig = {
   // ==========================================================================
   hero: {
     // Etiqueta superior de disponibilidad (ej: DISPONIBLE PARA NUEVOS PROYECTOS)
-    tagAvailability: "DISPONIBLE PARA NUEVOS PROYECTOS",
+    tagAvailability: "DISPONIBLE PARA NUEVOS PROYECTOS O EN PROCESO",
     
     // Tu nombre completo o alias artístico
     nombre: "Jorge Gutierrez",
@@ -138,6 +138,56 @@ export const PORTFOLIO_CONFIG: PortfolioConfig = {
           { nombre: "Post-Processing & Bloom", color: "#ec4899" },
         ],
       },
+    },
+    {
+      id: "agarre-electrico-animacion-dnd",
+      titulo: "Super Ataque: Agarre Eléctrico (DnD)",
+      categoria: "Animación 3D & Cinemática",
+      herramientas: ["Blender", "Keyframing", "Cámara Cinematográfica", "Rigging / Armature", "DnD"],
+      descripcion: "Animación al estilo de super ataque de videojuegos de pelea basada en el truco 'Agarre eléctrico' de D&D. Incluye resolución de problemas de rotación articular, keyframes sincronizados y encuadre cinematográfico de perfil.",
+      imagen: "./images/agarre_electrico_portada.jpg",
+      videoUrl: "./videos/agarre_electrico_intento2.mp4",
+      linkVideoExterno: "", // Sin botón de YouTube por ahora
+      clipsVideo: [
+        {
+          id: "intento-2",
+          label: "Intento 2 · Modelo Esferas & Cinemática",
+          url: "./videos/agarre_electrico_intento2.mp4",
+          descripcion: "Articulaciones esféricas, keyframes afinados y plano cinematográfico de cintura a cabeza.",
+        },
+        {
+          id: "intento-1",
+          label: "Intento 1 · Armature Original (Diagnóstico)",
+          url: "./videos/agarre_electrico_intento1.mp4",
+          descripcion: "Primer intento donde se detectó el problema de torsión y ruptura en muñecas y hombros.",
+        },
+      ],
+      detallesTecnicos: {
+        titulo: "Hitos Técnicos del Proceso en Blender:",
+        items: [
+          { nombre: "Keyframing de Ataque", color: "#00AB00" },
+          { nombre: "Cámara Cinematográfica Perfil", color: "#facc15" },
+          { nombre: "Articulaciones Esféricas", color: "#34d399" },
+          { nombre: "Concepto Truco DnD", color: "#60a5fa" },
+        ],
+      },
+      documentacion: [
+        {
+          seccion: "1. Contextualización & Concepto",
+          contenido:
+            "Mi trabajo consiste en una animación al estilo de super ataque de videojuegos de pelea, siendo el comienzo del ataque. En mi caso, me basé en la ejecución de un 'Agarre eléctrico', el truco de nivel 0 de DnD (Dungeons & Dragons).",
+        },
+        {
+          seccion: "2. Primer Intento y Diagnóstico del Esqueleto",
+          contenido:
+            "Comencé con un modelo que poseía posterior a un trabajo, con un armature y huesos guías que permiten un mejor control de los codos, rodillas, manos y pies. Sin embargo encontré un problema: las muñecas y los hombros se rompían al rotar mucho. Al principio pensé que era debido al modelo, pero con el tiempo investigué y me enteré que era por el cómo está hecho el esqueleto y cómo monitorea el control del modelo. De todas formas proseguí con la animación e hice los Keyframes de mi animación.",
+        },
+        {
+          seccion: "3. Solución Técnica, Keyframes y Cámara Cinematográfica",
+          contenido:
+            "Debido al problema que tenía con las muñecas y al no saber cómo solucionarlo, opté por el uso de un modelo que tenía esferas en las articulaciones, ocultando cualquier tipo de problema de rotación de los huesos. Con este modelo pasé a poner los tiempos de los keyframes en conjunto al movimiento de la cámara para obtener ese efecto cinematográfico que busco con un plano de perfil de la cintura hasta la cabeza.",
+        },
+      ],
     },
   ],
 

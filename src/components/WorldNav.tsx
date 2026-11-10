@@ -95,7 +95,7 @@ export const WorldNav: React.FC<WorldNavProps> = ({ activeId }) => {
       <nav
         id="desktop-world-nav"
         aria-label="Mapa de Mundo"
-        className="hidden lg:flex fixed right-7 top-1/2 -translate-y-1/2 z-40 flex-col items-end py-4"
+        className="hidden xl:flex fixed right-7 top-1/2 -translate-y-1/2 z-40 flex-col items-end py-4"
       >
         {/* Línea de ruta con progreso */}
         <div className="absolute right-[9px] top-6 bottom-6 w-[2px] pointer-events-none">
@@ -163,7 +163,7 @@ export const WorldNav: React.FC<WorldNavProps> = ({ activeId }) => {
       <nav
         id="mobile-world-nav"
         aria-label="Mapa de Mundo Móvil"
-        className="lg:hidden fixed bottom-0 left-0 right-0 z-50 px-2 py-2.5 border-t border-[#00AB00]/25 bg-[#0f130f]/95 backdrop-blur-md"
+        className="xl:hidden fixed bottom-0 left-0 right-0 z-50 px-2 py-2.5 border-t border-[#00AB00]/25 bg-[#0f130f]/95 backdrop-blur-md"
       >
         <div className="max-w-md mx-auto flex items-center justify-around gap-1">
           {WORLD_SECTIONS.map((sec) => {
