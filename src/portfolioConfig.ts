@@ -141,14 +141,20 @@ export const PORTFOLIO_CONFIG: PortfolioConfig = {
     },
     {
       id: "agarre-electrico-animacion-dnd",
-      titulo: "Super Ataque: Agarre Eléctrico (DnD)",
+      titulo: "Animación de Ataque Básico",
       categoria: "Animación 3D & Cinemática",
       herramientas: ["Blender", "Keyframing", "Cámara Cinematográfica", "Rigging / Armature", "DnD"],
-      descripcion: "Animación al estilo de super ataque de videojuegos de pelea basada en el truco 'Agarre eléctrico' de D&D. Incluye resolución de problemas de rotación articular, keyframes sincronizados y encuadre cinematográfico de perfil.",
+      descripcion: "Evolución de una animación de ataque estilo videojuego de pelea: desde las pruebas iniciales del truco 'Agarre eléctrico' de D&D y la corrección de rotación articular, hasta el desafío final adaptando un golpe básico con un modelo Golem hecho por un compañero.",
       imagen: "./images/agarre_electrico_portada.jpg",
-      videoUrl: "./videos/agarre_electrico_intento2.mp4",
+      videoUrl: "./videos/agarre_electrico_intento1.mp4",
       linkVideoExterno: "", // Sin botón de YouTube por ahora
       clipsVideo: [
+        {
+          id: "intento-1",
+          label: "Intento 1 · Armature Original (Diagnóstico)",
+          url: "./videos/agarre_electrico_intento1.mp4",
+          descripcion: "Primer testeo donde se detectó el problema de torsión y ruptura en muñecas y hombros.",
+        },
         {
           id: "intento-2",
           label: "Intento 2 · Modelo Esferas & Cinemática",
@@ -156,10 +162,10 @@ export const PORTFOLIO_CONFIG: PortfolioConfig = {
           descripcion: "Articulaciones esféricas, keyframes afinados y plano cinematográfico de cintura a cabeza.",
         },
         {
-          id: "intento-1",
-          label: "Intento 1 · Armature Original (Diagnóstico)",
-          url: "./videos/agarre_electrico_intento1.mp4",
-          descripcion: "Primer intento donde se detectó el problema de torsión y ruptura en muñecas y hombros.",
+          id: "intento-3",
+          label: "Intento 3 · Modelo Golem (Golpe Básico)",
+          url: "./videos/agarre_electrico_intento3.mp4",
+          descripcion: "Desafío con modelo y armature creados por un compañero, adaptado a un golpe normal de piedra.",
         },
       ],
       detallesTecnicos: {
@@ -168,7 +174,7 @@ export const PORTFOLIO_CONFIG: PortfolioConfig = {
           { nombre: "Keyframing de Ataque", color: "#00AB00" },
           { nombre: "Cámara Cinematográfica Perfil", color: "#facc15" },
           { nombre: "Articulaciones Esféricas", color: "#34d399" },
-          { nombre: "Concepto Truco DnD", color: "#60a5fa" },
+          { nombre: "Desafío Rig Golem (Tercero)", color: "#60a5fa" },
         ],
       },
       documentacion: [
@@ -186,6 +192,11 @@ export const PORTFOLIO_CONFIG: PortfolioConfig = {
           seccion: "3. Solución Técnica, Keyframes y Cámara Cinematográfica",
           contenido:
             "Debido al problema que tenía con las muñecas y al no saber cómo solucionarlo, opté por el uso de un modelo que tenía esferas en las articulaciones, ocultando cualquier tipo de problema de rotación de los huesos. Con este modelo pasé a poner los tiempos de los keyframes en conjunto al movimiento de la cámara para obtener ese efecto cinematográfico que busco con un plano de perfil de la cintura hasta la cabeza.",
+        },
+        {
+          seccion: "4. Tercer Intento: Desafío con Modelo Golem (Golpe Básico)",
+          contenido:
+            "Por último, con lo aprendido, opté por utilizar un modelo diferente: un golem que pedí a un compañero. Este es significativamente más pequeño que los modelos que utilicé antes y también tiene algunos errores; sin embargo, el fin de esto es ponerme un desafío con un modelo y armature hechos por alguien más y no por una página. Partiendo porque cambié el objetivo de ataque, ya no es un agarre eléctrico como los anteriores, sino que un golpe normal: a mi parecer, un ataque de electricidad no combina con un ser hecho de piedra, además de que las manos no poseían dedos, por lo que no era posible plasmar lo mismo que sí hice en los otros modelos. Con ese cambio en mente empecé con los keyframes y después con los detalles entre los keyframes, obteniendo un resultado que a mi parecer es decente. Me gustaría añadirle efectos especiales y de sonido, sin duda lo harían ver mejor, pero esa no es mi área.",
         },
       ],
     },

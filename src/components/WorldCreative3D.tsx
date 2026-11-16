@@ -230,33 +230,40 @@ export const WorldCreative3D: React.FC = () => {
             <div className="md:col-span-7 relative aspect-[16/10] sm:aspect-[16/9] md:aspect-auto md:min-h-[480px] bg-[#0c100c] overflow-hidden group flex flex-col justify-between border-b md:border-b-0 md:border-r border-[#00AB00]/20">
               {/* Barra de intentos / clips si el proyecto tiene múltiples clips */}
               {currentProject.clipsVideo && currentProject.clipsVideo.length > 1 && (
-                <div className="px-4 py-2 bg-[#131a13] border-b border-[#00AB00]/20 flex items-center gap-2 overflow-x-auto z-20">
-                  <span className="font-mono-code text-[10px] text-[#34d399] font-bold flex items-center gap-1 shrink-0">
-                    <Film className="w-3 h-3 text-[#00AB00]" />
-                    <span>INTENTOS:</span>
-                  </span>
-                  {currentProject.clipsVideo.map((clip) => {
-                    const isClipActive = (selectedClipId || currentProject.clipsVideo![0].id) === clip.id;
-                    return (
-                      <button
-                        key={clip.id}
-                        type="button"
-                        onClick={() => {
-                          audio.playBlip();
-                          setSelectedClipId(clip.id);
-                          setViewMode('video');
-                        }}
-                        className={`px-2.5 py-1 rounded-md text-[10px] font-mono-code font-bold transition-all shrink-0 cursor-pointer flex items-center gap-1 border ${
-                          isClipActive
-                            ? 'bg-[#00AB00] text-[#0c0f0c] border-[#10e85a] shadow-[0_0_8px_rgba(0,171,0,0.4)]'
-                            : 'bg-[#1e261e] text-[#9eb19e] border-[#00AB00]/25 hover:border-[#00AB00] hover:text-[#f0f6f0]'
-                        }`}
-                      >
-                        <Play className="w-2.5 h-2.5 fill-current" />
-                        <span>{clip.label}</span>
-                      </button>
-                    );
-                  })}
+                <div className="px-4 py-2 bg-[#131a13] border-b border-[#00AB00]/20 flex flex-col gap-1 z-20">
+                  <div className="flex items-center gap-2 overflow-x-auto">
+                    <span className="font-mono-code text-[10px] text-[#34d399] font-bold flex items-center gap-1 shrink-0">
+                      <Film className="w-3 h-3 text-[#00AB00]" />
+                      <span>INTENTOS:</span>
+                    </span>
+                    {currentProject.clipsVideo.map((clip) => {
+                      const isClipActive = (selectedClipId || currentProject.clipsVideo![0].id) === clip.id;
+                      return (
+                        <button
+                          key={clip.id}
+                          type="button"
+                          onClick={() => {
+                            audio.playBlip();
+                            setSelectedClipId(clip.id);
+                            setViewMode('video');
+                          }}
+                          className={`px-2.5 py-1 rounded-md text-[10px] font-mono-code font-bold transition-all shrink-0 cursor-pointer flex items-center gap-1 border ${
+                            isClipActive
+                              ? 'bg-[#00AB00] text-[#0c0f0c] border-[#10e85a] shadow-[0_0_8px_rgba(0,171,0,0.4)]'
+                              : 'bg-[#1e261e] text-[#9eb19e] border-[#00AB00]/25 hover:border-[#00AB00] hover:text-[#f0f6f0]'
+                          }`}
+                        >
+                          <Play className="w-2.5 h-2.5 fill-current" />
+                          <span>{clip.label}</span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                  {activeClip?.descripcion && (
+                    <p className="font-mono-code text-[10px] text-[#9eb19e] leading-snug">
+                      {activeClip.descripcion}
+                    </p>
+                  )}
                 </div>
               )}
 
@@ -456,7 +463,11 @@ export const WorldCreative3D: React.FC = () => {
                     >
                       <span className="flex items-center gap-2">
                         <FileText className="w-3.5 h-3.5 text-[#00AB00]" />
-                        <span>{showDocumentation ? 'Ocultar Documentación' : 'Ver Documentación (3 Fases)'}</span>
+                        <span>
+                          {showDocumentation
+                            ? 'Ocultar Documentación'
+                            : `Ver Documentación (${currentProject.documentacion.length} Fases)`}
+                        </span>
                       </span>
                       {showDocumentation ? (
                         <ChevronUp className="w-4 h-4 text-[#00AB00]" />
