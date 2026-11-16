@@ -144,7 +144,7 @@ export const PORTFOLIO_CONFIG: PortfolioConfig = {
       titulo: "Animación de Ataque Básico",
       categoria: "Animación 3D & Cinemática",
       herramientas: ["Blender", "Keyframing", "Cámara Cinematográfica", "Rigging / Armature", "DnD"],
-      descripcion: "Evolución de una animación de ataque estilo videojuego de pelea: desde las pruebas iniciales del truco 'Agarre eléctrico' de D&D y la corrección de rotación articular, hasta el desafío final adaptando un golpe básico con un modelo Golem hecho por un compañero.",
+      descripcion: "Evolución de una animación de ataque estilo videojuego de pelea: desde las pruebas iniciales del truco 'Agarre eléctrico' de D&D y la corrección de rotación articular, hasta el desafío final adaptando un golpe básico con un modelo Golem.",
       imagen: "./images/agarre_electrico_portada.jpg",
       videoUrl: "./videos/agarre_electrico_intento1.mp4",
       linkVideoExterno: "", // Sin botón de YouTube por ahora
