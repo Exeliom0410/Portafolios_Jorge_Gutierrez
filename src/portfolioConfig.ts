@@ -91,7 +91,7 @@ export const PORTFOLIO_CONFIG: PortfolioConfig = {
       imagen: "./images/hell_breezer.jpg",
       videoYoutubeId: "", // Si tienes un video en YouTube coloca el ID aquí (ej: "M7lc1UVf-VE")
       linkJugar: "https://hell-team.itch.io/hell-breezer",
-      linkCodigo: "https://github.com/Exeliom0410",
+      linkCodigo: "",
       linkDoc: "https://hell-team.itch.io/hell-breezer"
     }
   ],
