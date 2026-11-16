@@ -52,10 +52,13 @@ export const WorldCreative3D: React.FC = () => {
   const activeCustomCover = customCovers[currentProject.id];
   const activeCustomLink = customLinks[currentProject.id];
 
-  const activeClip =
-    currentProject.clipsVideo && selectedClipId
-      ? currentProject.clipsVideo.find((c) => c.id === selectedClipId)
-      : currentProject.clipsVideo?.[0];
+  const clips = currentProject.clipsVideo || [];
+  const foundClipIndex =
+    clips.length > 0 && selectedClipId
+      ? clips.findIndex((c) => c.id === selectedClipId)
+      : 0;
+  const currentClipIndex = foundClipIndex >= 0 ? foundClipIndex : 0;
+  const activeClip = clips[currentClipIndex];
 
   const activeVideoSource =
     activeCustomVideo || activeClip?.url || currentProject.videoUrl;
@@ -138,6 +141,24 @@ export const WorldCreative3D: React.FC = () => {
   const handleSelect = (idx: number) => {
     audio.playBlip();
     setCurrentIndex(idx);
+  };
+
+  const handlePrevClip = () => {
+    if (clips.length === 0) return;
+    audio.playBlip();
+    const prevIdx = (currentClipIndex - 1 + clips.length) % clips.length;
+    setSelectedClipId(clips[prevIdx].id);
+    setViewMode('video');
+    setVideoError(false);
+  };
+
+  const handleNextClip = () => {
+    if (clips.length === 0) return;
+    audio.playBlip();
+    const nextIdx = (currentClipIndex + 1) % clips.length;
+    setSelectedClipId(clips[nextIdx].id);
+    setViewMode('video');
+    setVideoError(false);
   };
 
   const isVfxProject = currentProject.categoria.includes('VFX') || currentProject.id.includes('vfx');
@@ -228,38 +249,70 @@ export const WorldCreative3D: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-0">
             {/* Columna Izquierda: Video Player o Portada / Render */}
             <div className="md:col-span-7 relative aspect-[16/10] sm:aspect-[16/9] md:aspect-auto md:min-h-[480px] bg-[#0c100c] overflow-hidden group flex flex-col justify-between border-b md:border-b-0 md:border-r border-[#00AB00]/20">
-              {/* Barra de intentos / clips si el proyecto tiene múltiples clips */}
-              {currentProject.clipsVideo && currentProject.clipsVideo.length > 1 && (
-                <div className="px-4 py-2 bg-[#131a13] border-b border-[#00AB00]/20 flex flex-col gap-1 z-20">
-                  <div className="flex items-center gap-2 overflow-x-auto">
-                    <span className="font-mono-code text-[10px] text-[#34d399] font-bold flex items-center gap-1 shrink-0">
-                      <Film className="w-3 h-3 text-[#00AB00]" />
-                      <span>INTENTOS:</span>
-                    </span>
-                    {currentProject.clipsVideo.map((clip) => {
-                      const isClipActive = (selectedClipId || currentProject.clipsVideo![0].id) === clip.id;
-                      return (
-                        <button
-                          key={clip.id}
-                          type="button"
-                          onClick={() => {
-                            audio.playBlip();
-                            setSelectedClipId(clip.id);
-                            setViewMode('video');
-                          }}
-                          className={`px-2.5 py-1 rounded-md text-[10px] font-mono-code font-bold transition-all shrink-0 cursor-pointer flex items-center gap-1 border ${
-                            isClipActive
-                              ? 'bg-[#00AB00] text-[#0c0f0c] border-[#10e85a] shadow-[0_0_8px_rgba(0,171,0,0.4)]'
-                              : 'bg-[#1e261e] text-[#9eb19e] border-[#00AB00]/25 hover:border-[#00AB00] hover:text-[#f0f6f0]'
-                          }`}
-                        >
-                          <Play className="w-2.5 h-2.5 fill-current" />
-                          <span>{clip.label}</span>
-                        </button>
-                      );
-                    })}
+              {/* Carrusel de Videos (Intentos) sin barra de desplazamiento */}
+              {clips.length > 1 && activeClip && (
+                <div className="px-4 py-2.5 bg-[#131a13] border-b border-[#00AB00]/20 flex flex-col gap-1.5 z-20">
+                  <div className="flex items-center justify-between gap-2">
+                    <div className="flex items-center gap-2 min-w-0">
+                      <span className="font-mono-code text-[10px] text-[#34d399] font-bold flex items-center gap-1 shrink-0">
+                        <Film className="w-3.5 h-3.5 text-[#00AB00]" />
+                        <span className="hidden sm:inline">VIDEOS:</span>
+                      </span>
+                      <span className="font-mono-code text-[10px] px-1.5 py-0.5 rounded bg-[#1e261e] border border-[#00AB00]/30 text-[#facc15] font-bold shrink-0">
+                        {currentClipIndex + 1} / {clips.length}
+                      </span>
+                      <span className="font-mono-code text-[11px] font-bold text-[#f0f6f0] truncate">
+                        {activeClip.label}
+                      </span>
+                    </div>
+
+                    {/* Controles del Carrusel de Videos */}
+                    <div className="flex items-center gap-1.5 shrink-0">
+                      <button
+                        type="button"
+                        onClick={handlePrevClip}
+                        className="w-7 h-7 rounded-lg bg-[#1e261e] hover:bg-[#00AB00] text-[#f0f6f0] hover:text-[#0c0f0c] border border-[#00AB00]/35 flex items-center justify-center transition-all cursor-pointer"
+                        title="Video anterior"
+                      >
+                        <ChevronLeft className="w-4 h-4" />
+                      </button>
+
+                      <div className="flex items-center gap-1 px-1">
+                        {clips.map((clip, idx) => {
+                          const isClipActive = idx === currentClipIndex;
+                          return (
+                            <button
+                              key={clip.id}
+                              type="button"
+                              onClick={() => {
+                                audio.playBlip();
+                                setSelectedClipId(clip.id);
+                                setViewMode('video');
+                                setVideoError(false);
+                              }}
+                              className={`h-2 rounded-full transition-all cursor-pointer ${
+                                isClipActive
+                                  ? 'w-5 bg-[#00AB00] shadow-[0_0_8px_rgba(0,171,0,0.6)]'
+                                  : 'w-2 bg-[#2E332E] hover:bg-[#00AB00]/60'
+                              }`}
+                              title={clip.label}
+                              aria-label={clip.label}
+                            />
+                          );
+                        })}
+                      </div>
+
+                      <button
+                        type="button"
+                        onClick={handleNextClip}
+                        className="w-7 h-7 rounded-lg bg-[#1e261e] hover:bg-[#00AB00] text-[#f0f6f0] hover:text-[#0c0f0c] border border-[#00AB00]/35 flex items-center justify-center transition-all cursor-pointer"
+                        title="Siguiente video"
+                      >
+                        <ChevronRight className="w-4 h-4" />
+                      </button>
+                    </div>
                   </div>
-                  {activeClip?.descripcion && (
+                  {activeClip.descripcion && (
                     <p className="font-mono-code text-[10px] text-[#9eb19e] leading-snug">
                       {activeClip.descripcion}
                     </p>
@@ -522,9 +575,9 @@ export const WorldCreative3D: React.FC = () => {
                   </div>
                 )}
 
-                {/* Botón Principal: Solo se muestra botón de YouTube si es un proyecto con enlace a YouTube */}
-                <div className="pt-2">
-                  {isYouTubeProject && activeVideoLink ? (
+                {/* Botón Principal: Solo se muestra si es un proyecto con enlace a YouTube */}
+                {isYouTubeProject && activeVideoLink && (
+                  <div className="pt-2">
                     <a
                       href={activeVideoLink}
                       target="_blank"
@@ -542,24 +595,8 @@ export const WorldCreative3D: React.FC = () => {
                       </span>
                       <ExternalLink className="w-3.5 h-3.5 opacity-80 ml-1" />
                     </a>
-                  ) : (
-                    <button
-                      type="button"
-                      onClick={() => {
-                        audio.playStart();
-                        setViewMode('video');
-                        if (videoRef.current) {
-                          videoRef.current.currentTime = 0;
-                          videoRef.current.play().catch(() => {});
-                        }
-                      }}
-                      className="w-full flex items-center justify-center gap-2.5 px-5 py-3 rounded-xl bg-[#00AB00] hover:bg-[#10e85a] text-[#0c0f0c] font-mono-code text-xs font-bold transition-all shadow-[0_0_20px_rgba(0,171,0,0.4)] cursor-pointer group uppercase tracking-wider"
-                    >
-                      <Play className="w-4 h-4 fill-current group-hover:scale-110 transition-transform" />
-                      <span>REPRODUCIR ANIMACIÓN EN MONITOR</span>
-                    </button>
-                  )}
-                </div>
+                  </div>
+                )}
               </div>
 
               {/* Estado técnico del Asset o Pipeline */}
