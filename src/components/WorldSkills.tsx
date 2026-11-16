@@ -28,10 +28,10 @@ export const WorldSkills: React.FC = () => {
   };
 
   return (
-    <section id="mundo-04" className="relative z-10 py-24 sm:py-32 border-t border-[#00AB00]/20">
-      <div className="max-w-5xl mx-auto px-6">
+    <section id="mundo-04" className="relative z-10 py-16 sm:py-24 lg:py-32 border-t border-[#00AB00]/20">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6">
         {/* Cabecera de Nivel */}
-        <div className="flex items-baseline justify-between gap-4 mb-12 sm:mb-16 flex-wrap">
+        <div className="flex items-baseline justify-between gap-4 mb-10 sm:mb-16 flex-wrap">
           <div>
             <div className="flex items-center gap-2 font-pixel text-xs sm:text-sm text-[#00AB00] mb-2">
               <span className="w-3 h-3 bg-[#00AB00] pixel-diamond shadow-[0_0_8px_#00AB00]" />
@@ -58,7 +58,7 @@ export const WorldSkills: React.FC = () => {
                   <span>{cat.categoria}</span>
                 </h3>
 
-                <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-3">
+                <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-2.5 sm:gap-3">
                   {cat.items.map((item) => {
                     const isSelected = selectedSkill?.label === item.label;
                     return (
@@ -97,7 +97,7 @@ export const WorldSkills: React.FC = () => {
           </div>
 
           {/* Panel Lateral: Detalle del Item Seleccionado (Inspection Window) */}
-          <div className="lg:col-span-4 sticky top-24">
+          <div className="lg:col-span-4 lg:sticky lg:top-24">
             <div className="bg-[#1e261e] border-2 border-[#00AB00]/40 rounded-2xl p-6 shadow-xl relative overflow-hidden">
               {/* Scanlines sutiles */}
               <div className="absolute inset-0 crt-overlay opacity-20 pointer-events-none" />

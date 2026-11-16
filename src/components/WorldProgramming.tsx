@@ -17,10 +17,10 @@ export const WorldProgramming: React.FC<WorldProgrammingProps> = ({ onOpenTraile
   const { proyectosProgramacion } = PORTFOLIO_CONFIG;
 
   return (
-    <section id="mundo-02" className="relative z-10 py-24 sm:py-32 border-t border-[#00AB00]/20">
-      <div className="max-w-5xl mx-auto px-6">
+    <section id="mundo-02" className="relative z-10 py-16 sm:py-24 lg:py-32 border-t border-[#00AB00]/20">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6">
         {/* Cabecera de Nivel */}
-        <div className="flex items-baseline justify-between gap-4 mb-12 sm:mb-16 flex-wrap">
+        <div className="flex items-baseline justify-between gap-4 mb-10 sm:mb-16 flex-wrap">
           <div>
             <div className="flex items-center gap-2 font-pixel text-xs sm:text-sm text-[#00AB00] mb-2">
               <span className="w-3 h-3 bg-[#00AB00] pixel-diamond shadow-[0_0_8px_#00AB00]" />
@@ -46,12 +46,12 @@ export const WorldProgramming: React.FC<WorldProgrammingProps> = ({ onOpenTraile
                 className="bg-[#1e261e] border-2 border-[#00AB00]/30 rounded-3xl overflow-hidden shadow-2xl transition-all duration-300 hover:border-[#00AB00] hover:shadow-[0_20px_45px_rgba(0,171,0,0.22)] group"
               >
                 {/* Barra superior estilo terminal arcade */}
-                <div className="flex items-center justify-between px-6 py-3 bg-[#161c16] border-b border-[#00AB00]/20 font-mono-code text-xs">
-                  <div className="flex items-center gap-2 text-[#00AB00]">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#00AB00] animate-pulse" />
-                    <span className="font-bold">PROYECTO DESTACADO · GAMEPLAY & ARQUITECTURA</span>
+                <div className="flex items-center justify-between flex-wrap gap-2 px-4 sm:px-6 py-3 bg-[#161c16] border-b border-[#00AB00]/20 font-mono-code text-[11px] sm:text-xs">
+                  <div className="flex items-center gap-2 text-[#00AB00] min-w-0">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#00AB00] animate-pulse shrink-0" />
+                    <span className="font-bold truncate">PROYECTO DESTACADO · GAMEPLAY & ARQUITECTURA</span>
                   </div>
-                  <div className="flex items-center gap-2 text-[#34d399] font-semibold">
+                  <div className="flex items-center gap-2 text-[#34d399] font-semibold shrink-0">
                     <span className="hidden sm:inline">MOTOR:</span>
                     <span>C# · UNITY 2D</span>
                   </div>
@@ -90,18 +90,18 @@ export const WorldProgramming: React.FC<WorldProgrammingProps> = ({ onOpenTraile
                     )}
 
                     {/* Badges sobre la imagen */}
-                    <div className="absolute top-4 left-4 font-mono-code text-[11px] px-3 py-1 rounded-md bg-[#0f130f]/85 border border-[#00AB00]/50 text-[#34d399] flex items-center gap-1.5 shadow-md backdrop-blur-xs">
-                      <span className="w-2 h-2 rounded-full bg-[#00AB00] animate-pulse" />
-                      <span>PROYECTO DESTACADO</span>
+                    <div className="absolute top-3 left-3 sm:top-4 sm:left-4 font-mono-code text-[10px] sm:text-[11px] px-2.5 sm:px-3 py-1 rounded-md bg-[#0f130f]/85 border border-[#00AB00]/50 text-[#34d399] flex items-center gap-1.5 shadow-md backdrop-blur-xs max-w-[calc(100%-1.5rem)]">
+                      <span className="w-2 h-2 rounded-full bg-[#00AB00] animate-pulse shrink-0" />
+                      <span className="truncate">PROYECTO DESTACADO</span>
                     </div>
-                    <div className="absolute bottom-4 left-4 font-mono-code text-xs px-3.5 py-1.5 rounded-lg bg-[#0f130f]/90 border border-[#00AB00]/60 text-[#f0f6f0] flex items-center gap-2 shadow-lg backdrop-blur-xs">
-                      <span className="w-2 h-2 rounded-full bg-[#00AB00]" />
-                      <span>BEAT 'EM UP DE ACCIÓN · HELL BREEZER</span>
+                    <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 font-mono-code text-[10px] sm:text-xs px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-lg bg-[#0f130f]/90 border border-[#00AB00]/60 text-[#f0f6f0] flex items-center gap-2 shadow-lg backdrop-blur-xs max-w-[calc(100%-1.5rem)]">
+                      <span className="w-2 h-2 rounded-full bg-[#00AB00] shrink-0" />
+                      <span className="truncate">BEAT 'EM UP DE ACCIÓN · HELL BREEZER</span>
                     </div>
                   </div>
 
                   {/* Información completa, especificaciones técnicas y enlaces DEBAJO de la imagen */}
-                  <div className="p-6 sm:p-8 lg:p-10 flex flex-col bg-[#1e261e] space-y-6">
+                  <div className="p-5 sm:p-8 lg:p-10 flex flex-col bg-[#1e261e] space-y-5 sm:space-y-6">
                     {/* Etiquetas de Tecnologías */}
                     <div className="flex flex-wrap items-center gap-2">
                       {p.tags.map((t) => (
@@ -151,14 +151,14 @@ export const WorldProgramming: React.FC<WorldProgrammingProps> = ({ onOpenTraile
                     )}
 
                     {/* Botones de Acción */}
-                    <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-[#00AB00]/20">
+                    <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 sm:gap-4 pt-4 border-t border-[#00AB00]/20">
                       {p.linkJugar && (
                         <a
                           href={p.linkJugar}
                           target="_blank"
                           rel="noopener noreferrer"
                           onClick={() => audio.playBlip()}
-                          className="flex-1 sm:flex-initial min-w-[220px] font-mono-code text-sm px-6 py-3.5 rounded-xl bg-[#00AB00] hover:bg-[#10e85a] text-[#0c0f0c] font-bold text-center flex items-center justify-center gap-2.5 transition-all duration-150 shadow-md cursor-pointer hover:shadow-[0_0_20px_rgba(0,171,0,0.4)]"
+                          className="w-full sm:w-auto sm:flex-1 md:flex-initial sm:min-w-[220px] font-mono-code text-xs sm:text-sm px-5 sm:px-6 py-3.5 rounded-xl bg-[#00AB00] hover:bg-[#10e85a] text-[#0c0f0c] font-bold text-center flex items-center justify-center gap-2.5 transition-all duration-150 shadow-md cursor-pointer hover:shadow-[0_0_20px_rgba(0,171,0,0.4)]"
                         >
                           {p.linkJugar.includes('itch') ? (
                             <BrandIcon name="itchio" className="w-4 h-4 shrink-0" colored={false} />
@@ -175,7 +175,7 @@ export const WorldProgramming: React.FC<WorldProgrammingProps> = ({ onOpenTraile
                           target="_blank"
                           rel="noopener noreferrer"
                           onClick={() => audio.playBlip()}
-                          className="font-mono-code text-sm px-6 py-3.5 rounded-xl bg-[#2E332E] hover:bg-[#373f37] hover:text-[#00AB00] text-[#f0f6f0] border border-[#00AB00]/30 text-center flex items-center justify-center gap-2.5 transition-all duration-150 cursor-pointer shadow-sm"
+                          className="w-full sm:w-auto font-mono-code text-xs sm:text-sm px-5 sm:px-6 py-3.5 rounded-xl bg-[#2E332E] hover:bg-[#373f37] hover:text-[#00AB00] text-[#f0f6f0] border border-[#00AB00]/30 text-center flex items-center justify-center gap-2.5 transition-all duration-150 cursor-pointer shadow-sm"
                           title="Ver Repositorio en GitHub"
                         >
                           <BrandIcon name="github" className="w-4 h-4 shrink-0" />

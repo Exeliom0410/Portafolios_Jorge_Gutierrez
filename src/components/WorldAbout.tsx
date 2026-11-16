@@ -11,10 +11,10 @@ export const WorldAbout: React.FC = () => {
   const { avatar, bio, stats } = PORTFOLIO_CONFIG;
 
   return (
-    <section id="mundo-01" className="relative z-10 py-24 sm:py-32 border-t border-[#00AB00]/20">
-      <div className="max-w-5xl mx-auto px-6">
+    <section id="mundo-01" className="relative z-10 py-16 sm:py-24 lg:py-32 border-t border-[#00AB00]/20">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6">
         {/* Cabecera de Nivel */}
-        <div className="flex items-baseline gap-4 mb-12 sm:mb-16 flex-wrap">
+        <div className="flex items-baseline gap-3 sm:gap-4 mb-10 sm:mb-16 flex-wrap">
           <div className="flex items-center gap-2 font-pixel text-xs sm:text-sm text-[#00AB00]">
             <span className="w-3 h-3 bg-[#00AB00] pixel-diamond shadow-[0_0_8px_#00AB00]" />
             <span>MUNDO 01</span>
@@ -28,10 +28,10 @@ export const WorldAbout: React.FC = () => {
         </div>
 
         {/* Grid: Avatar + Bio & Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 lg:gap-12 items-start">
           {/* Avatar Frame RPG */}
           <div className="md:col-span-4 flex flex-col items-center">
-            <div className="relative w-full max-w-[260px] aspect-square rounded-2xl p-2 bg-[#1e261e] border-2 border-[#00AB00]/40 shadow-[0_10px_30px_rgba(0,0,0,0.5)] group">
+            <div className="relative w-full max-w-[210px] sm:max-w-[250px] md:max-w-[260px] aspect-square rounded-2xl p-2 bg-[#1e261e] border-2 border-[#00AB00]/40 shadow-[0_10px_30px_rgba(0,0,0,0.5)] group">
               {/* Esquinas decorativas de marco arcade */}
               <div className="absolute top-1 left-1 w-2.5 h-2.5 border-t-2 border-l-2 border-[#00AB00]" />
               <div className="absolute top-1 right-1 w-2.5 h-2.5 border-t-2 border-r-2 border-[#00AB00]" />
@@ -96,13 +96,18 @@ export const WorldAbout: React.FC = () => {
 
               <div id="statSheet" className="space-y-4">
                 {stats.map((stat) => (
-                  <div key={stat.label} className="grid grid-cols-12 gap-3 items-center">
-                    <span className="col-span-5 sm:col-span-4 font-mono-code text-xs sm:text-sm text-[#9eb19e] truncate">
-                      {stat.label}
-                    </span>
-                    
+                  <div key={stat.label} className="flex flex-col gap-1.5 sm:grid sm:grid-cols-12 sm:gap-3 sm:items-center">
+                    <div className="flex items-center justify-between sm:contents">
+                      <span className="sm:col-span-5 md:col-span-4 font-mono-code text-xs sm:text-sm text-[#9eb19e] sm:truncate">
+                        {stat.label}
+                      </span>
+                      <span className="sm:hidden font-mono-code text-xs text-[#00AB00] font-bold">
+                        {stat.value}
+                      </span>
+                    </div>
+
                     {/* Barra de Progreso */}
-                    <div className="col-span-5 sm:col-span-7 h-2.5 bg-[#121612] rounded-full overflow-hidden p-0.5 border border-[#00AB00]/30">
+                    <div className="sm:col-span-6 md:col-span-7 h-2.5 bg-[#121612] rounded-full overflow-hidden p-0.5 border border-[#00AB00]/30">
                       <div
                         className="h-full rounded-full transition-all duration-1000 ease-out"
                         style={{
@@ -113,7 +118,7 @@ export const WorldAbout: React.FC = () => {
                       />
                     </div>
 
-                    <span className="col-span-2 sm:col-span-1 font-mono-code text-xs text-[#00AB00] text-right font-bold">
+                    <span className="hidden sm:block sm:col-span-1 font-mono-code text-xs text-[#00AB00] text-right font-bold">
                       {stat.value}
                     </span>
                   </div>

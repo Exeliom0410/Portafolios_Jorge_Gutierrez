@@ -164,10 +164,10 @@ export const WorldCreative3D: React.FC = () => {
   const isVfxProject = currentProject.categoria.includes('VFX') || currentProject.id.includes('vfx');
 
   return (
-    <section id="mundo-03" className="relative z-10 py-24 sm:py-32 border-t border-[#00AB00]/20">
-      <div className="max-w-5xl mx-auto px-6">
+    <section id="mundo-03" className="relative z-10 py-16 sm:py-24 lg:py-32 border-t border-[#00AB00]/20">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6">
         {/* Cabecera de Nivel */}
-        <div className="flex items-baseline justify-between gap-4 mb-12 sm:mb-16 flex-wrap">
+        <div className="flex items-baseline justify-between gap-4 mb-10 sm:mb-16 flex-wrap">
           <div>
             <div className="flex items-center gap-2 font-pixel text-xs sm:text-sm text-[#00AB00] mb-2">
               <span className="w-3 dot-diamond bg-[#00AB00] pixel-diamond shadow-[0_0_8px_#00AB00]" />
@@ -177,25 +177,25 @@ export const WorldCreative3D: React.FC = () => {
               Proyectos Creativos · Animación 3D & VFX
             </h2>
           </div>
-          <div className="flex items-center gap-2 font-mono-code text-xs text-[#facc15] bg-[#1e261e] px-3.5 py-1.5 rounded-full border border-[#00AB00]/30">
-            <Box className="w-3.5 h-3.5 text-[#00AB00]" />
+          <div className="flex items-center gap-2 font-mono-code text-[11px] sm:text-xs text-[#facc15] bg-[#1e261e] px-3 sm:px-3.5 py-1.5 rounded-full border border-[#00AB00]/30">
+            <Box className="w-3.5 h-3.5 text-[#00AB00] shrink-0" />
             <span>BLENDER · RIGGING · UNITY VFX & SHADERS</span>
           </div>
         </div>
 
         {/* Carrusel Principal de Animación 3D & VFX */}
-        <div className="bg-[#1e261e] border-2 border-[#00AB00]/30 rounded-3xl overflow-hidden shadow-2xl mb-12">
+        <div className="bg-[#1e261e] border-2 border-[#00AB00]/30 rounded-3xl overflow-hidden shadow-2xl mb-8 sm:mb-12">
           {/* Barra superior de visor retro */}
-          <div className="flex items-center justify-between px-6 py-3 bg-[#161c16] border-b border-[#00AB00]/20 font-mono-code text-xs flex-wrap gap-2">
-            <div className="flex items-center gap-2 text-[#00AB00]">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#00AB00] animate-pulse" />
-              <span className="font-bold uppercase">
-                {isVfxProject ? 'VISOR DE EFECTOS ESPECIALES & SHADERS (UNITY)' : 'VISOR DE MODELADO & ANIMACIÓN 3D (BLENDER)'}
+          <div className="flex items-center justify-between px-4 sm:px-6 py-3 bg-[#161c16] border-b border-[#00AB00]/20 font-mono-code text-xs flex-wrap gap-2">
+            <div className="flex items-center gap-2 text-[#00AB00] min-w-0">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#00AB00] animate-pulse shrink-0" />
+              <span className="font-bold uppercase truncate text-[11px] sm:text-xs">
+                {isVfxProject ? 'VISOR VFX & SHADERS (UNITY)' : 'VISOR ANIMACIÓN 3D (BLENDER)'}
               </span>
             </div>
 
             {/* Selector de modo Video vs Render (si el proyecto tiene ambos) */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
               {hasVideo && currentProject.imagen && (
                 <div className="flex items-center bg-[#1e261e] p-0.5 rounded-lg border border-[#00AB00]/25">
                   <button
@@ -248,12 +248,12 @@ export const WorldCreative3D: React.FC = () => {
               Texto / Información a la Derecha (md:col-span-5) */}
           <div className="grid grid-cols-1 md:grid-cols-12 gap-0">
             {/* Columna Izquierda: Video Player o Portada / Render */}
-            <div className="md:col-span-7 relative aspect-[16/10] sm:aspect-[16/9] md:aspect-auto md:min-h-[480px] bg-[#0c100c] overflow-hidden group flex flex-col justify-between border-b md:border-b-0 md:border-r border-[#00AB00]/20">
+            <div className="md:col-span-7 relative md:min-h-[430px] lg:min-h-[480px] bg-[#0c100c] overflow-hidden group flex flex-col justify-between border-b md:border-b-0 md:border-r border-[#00AB00]/20">
               {/* Carrusel de Videos (Intentos) sin barra de desplazamiento */}
               {clips.length > 1 && activeClip && (
-                <div className="px-4 py-2.5 bg-[#131a13] border-b border-[#00AB00]/20 flex flex-col gap-1.5 z-20">
-                  <div className="flex items-center justify-between gap-2">
-                    <div className="flex items-center gap-2 min-w-0">
+                <div className="px-3 sm:px-4 py-2.5 bg-[#131a13] border-b border-[#00AB00]/20 flex flex-col gap-1.5 z-20">
+                  <div className="flex flex-wrap sm:flex-nowrap items-center justify-between gap-2">
+                    <div className="flex items-center gap-2 min-w-0 flex-1">
                       <span className="font-mono-code text-[10px] text-[#34d399] font-bold flex items-center gap-1 shrink-0">
                         <Film className="w-3.5 h-3.5 text-[#00AB00]" />
                         <span className="hidden sm:inline">VIDEOS:</span>
@@ -267,11 +267,11 @@ export const WorldCreative3D: React.FC = () => {
                     </div>
 
                     {/* Controles del Carrusel de Videos */}
-                    <div className="flex items-center gap-1.5 shrink-0">
+                    <div className="flex items-center gap-1.5 shrink-0 ml-auto">
                       <button
                         type="button"
                         onClick={handlePrevClip}
-                        className="w-7 h-7 rounded-lg bg-[#1e261e] hover:bg-[#00AB00] text-[#f0f6f0] hover:text-[#0c0f0c] border border-[#00AB00]/35 flex items-center justify-center transition-all cursor-pointer"
+                        className="w-8 h-8 sm:w-7 sm:h-7 rounded-lg bg-[#1e261e] hover:bg-[#00AB00] text-[#f0f6f0] hover:text-[#0c0f0c] border border-[#00AB00]/35 flex items-center justify-center transition-all cursor-pointer"
                         title="Video anterior"
                       >
                         <ChevronLeft className="w-4 h-4" />
@@ -305,7 +305,7 @@ export const WorldCreative3D: React.FC = () => {
                       <button
                         type="button"
                         onClick={handleNextClip}
-                        className="w-7 h-7 rounded-lg bg-[#1e261e] hover:bg-[#00AB00] text-[#f0f6f0] hover:text-[#0c0f0c] border border-[#00AB00]/35 flex items-center justify-center transition-all cursor-pointer"
+                        className="w-8 h-8 sm:w-7 sm:h-7 rounded-lg bg-[#1e261e] hover:bg-[#00AB00] text-[#f0f6f0] hover:text-[#0c0f0c] border border-[#00AB00]/35 flex items-center justify-center transition-all cursor-pointer"
                         title="Siguiente video"
                       >
                         <ChevronRight className="w-4 h-4" />
@@ -321,17 +321,17 @@ export const WorldCreative3D: React.FC = () => {
               )}
 
               {/* Viewport de Reproducción o Portada */}
-              <div className="relative flex-1 flex items-center justify-center min-h-[340px] sm:min-h-[420px] overflow-hidden">
+              <div className="relative flex-1 flex items-center justify-center aspect-video md:aspect-auto min-h-[210px] sm:min-h-[300px] lg:min-h-[400px] overflow-hidden">
                 {viewMode === 'video' ? (
                   youtubeId ? (
                     /* Reproductor YouTube embebido sin cookies de rastreo */
-                    <div className="relative w-full h-full min-h-[340px] sm:min-h-[420px] flex items-center justify-center bg-[#0a0d0a]">
+                    <div className="relative w-full h-full min-h-[210px] sm:min-h-[300px] lg:min-h-[400px] flex items-center justify-center bg-[#0a0d0a]">
                       <iframe
                         src={`https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&rel=0&modestbranding=1`}
                         title={currentProject.titulo}
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowFullScreen
-                        className="w-full h-full min-h-[340px] sm:min-h-[420px] border-0"
+                        className="w-full h-full min-h-[210px] sm:min-h-[300px] lg:min-h-[400px] border-0"
                       />
                     </div>
                   ) : hasVideo && !videoError && activeVideoSource ? (
@@ -474,7 +474,7 @@ export const WorldCreative3D: React.FC = () => {
             </div>
 
             {/* Columna Derecha: Información del Proyecto, Desglose Técnico y Documentación */}
-            <div className="md:col-span-5 p-5 sm:p-7 md:p-8 flex flex-col justify-between bg-[#1e261e] space-y-5">
+            <div className="md:col-span-5 p-5 sm:p-6 lg:p-8 flex flex-col justify-between bg-[#1e261e] space-y-5">
               <div className="space-y-4">
                 {/* Herramientas utilizadas */}
                 <div className="flex flex-wrap gap-1.5">
@@ -490,7 +490,7 @@ export const WorldCreative3D: React.FC = () => {
 
                 {/* Título del Proyecto */}
                 <div>
-                  <h3 className="font-display font-bold text-2xl sm:text-3xl text-[#f0f6f0] leading-snug">
+                  <h3 className="font-display font-bold text-xl sm:text-2xl lg:text-3xl text-[#f0f6f0] leading-snug">
                     {currentProject.titulo}
                   </h3>
                   <p className="font-mono-code text-xs text-[#34d399] mt-1">
@@ -533,7 +533,7 @@ export const WorldCreative3D: React.FC = () => {
 
                 {/* Panel de Documentación Expandible */}
                 {showDocumentation && currentProject.documentacion && (
-                  <div className="bg-[#141a14] rounded-xl p-4 border border-[#00AB00]/30 space-y-3 animate-in fade-in duration-300 max-h-[320px] overflow-y-auto">
+                  <div className="bg-[#141a14] rounded-xl p-3.5 sm:p-4 border border-[#00AB00]/30 space-y-3 animate-in fade-in duration-300 max-h-[300px] sm:max-h-[320px] overflow-y-auto">
                     <div className="font-mono-code text-[11px] text-[#00AB00] font-bold uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-[#00AB00]/20">
                       <Sparkles className="w-3.5 h-3.5 text-[#00AB00]" />
                       <span>Bitácora de Desarrollo & Notas Técnicas:</span>
@@ -558,7 +558,7 @@ export const WorldCreative3D: React.FC = () => {
                       <Sparkles className="w-3.5 h-3.5 text-[#00AB00]" />
                       <span>{currentProject.detallesTecnicos.titulo}</span>
                     </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-[#d1dfd1]">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 xl:grid-cols-2 gap-2 text-xs text-[#d1dfd1]">
                       {currentProject.detallesTecnicos.items.map((item) => (
                         <div
                           key={item.nombre}
@@ -642,7 +642,7 @@ export const WorldCreative3D: React.FC = () => {
           </div>
 
           {/* Selector interactivo inferior (Cartuchos de Nivel) */}
-          <div className="p-4 bg-[#161c16] border-t border-[#00AB00]/20 flex items-center justify-center gap-3 overflow-x-auto">
+          <div className="p-3 sm:p-4 bg-[#161c16] border-t border-[#00AB00]/20 grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3">
             {proyectos3D.map((proj, idx) => {
               const isSelected = idx === currentIndex;
               const thumbImg = customCovers[proj.id] || proj.imagen;
@@ -650,10 +650,10 @@ export const WorldCreative3D: React.FC = () => {
                 <button
                   key={proj.id}
                   onClick={() => handleSelect(idx)}
-                  className={`flex items-center gap-3 px-4 py-2.5 rounded-xl border-2 transition-all duration-200 shrink-0 text-left cursor-pointer ${
+                  className={`flex items-center gap-3 px-3 sm:px-4 py-2.5 rounded-xl border-2 transition-all duration-200 text-left cursor-pointer min-w-0 ${
                     isSelected
-                      ? 'bg-[#222d22] border-[#00AB00] shadow-[0_0_15px_rgba(0,171,0,0.35)] scale-[1.02]'
-                      : 'bg-[#121612] border-[#00AB00]/20 opacity-70 hover:opacity-100 hover:border-[#00AB00]/50'
+                      ? 'bg-[#222d22] border-[#00AB00] shadow-[0_0_15px_rgba(0,171,0,0.35)] sm:scale-[1.02]'
+                      : 'bg-[#121612] border-[#00AB00]/20 opacity-75 hover:opacity-100 hover:border-[#00AB00]/50'
                   }`}
                   title={proj.titulo}
                 >
@@ -677,11 +677,11 @@ export const WorldCreative3D: React.FC = () => {
                       <Sparkles className="w-4 h-4 text-[#00AB00]" />
                     )}
                   </div>
-                  <div className="font-mono-code text-xs">
+                  <div className="font-mono-code text-xs min-w-0 flex-1">
                     <div className="text-[10px] text-[#00AB00] font-bold tracking-wider">
                       PROYECTO 0{idx + 1}
                     </div>
-                    <div className="text-[#f0f6f0] font-semibold truncate max-w-[210px]">
+                    <div className="text-[#f0f6f0] font-semibold truncate">
                       {proj.titulo.split('(')[0].trim()}
                     </div>
                   </div>

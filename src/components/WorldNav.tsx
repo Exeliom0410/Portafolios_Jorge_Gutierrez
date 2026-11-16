@@ -53,12 +53,12 @@ export const WorldNav: React.FC<WorldNavProps> = ({ activeId }) => {
   return (
     <>
       {/* Botón de Sonido Flotante Superior Izquierdo */}
-      <div className="fixed top-5 left-5 z-50 flex items-center gap-2">
+      <div className="fixed top-3.5 left-3.5 sm:top-5 sm:left-5 z-50 flex items-center gap-2">
         <button
           id="sound-toggle-btn"
           onClick={handleToggleSound}
           title={isMuted ? 'Activar sonido 8-bit' : 'Silenciar sonido'}
-          className="flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-mono-code transition-all duration-200 border"
+          className="flex items-center gap-2 px-2.5 sm:px-3 py-2 rounded-xl text-xs font-mono-code transition-all duration-200 border cursor-pointer"
           style={{
             backgroundColor: 'rgba(22, 28, 22, 0.85)',
             backdropFilter: 'blur(8px)',
@@ -95,7 +95,7 @@ export const WorldNav: React.FC<WorldNavProps> = ({ activeId }) => {
       <nav
         id="desktop-world-nav"
         aria-label="Mapa de Mundo"
-        className="hidden xl:flex fixed right-7 top-1/2 -translate-y-1/2 z-40 flex-col items-end py-4"
+        className="hidden xl:flex fixed right-4 2xl:right-7 top-1/2 -translate-y-1/2 z-40 flex-col items-end py-4"
       >
         {/* Línea de ruta con progreso */}
         <div className="absolute right-[9px] top-6 bottom-6 w-[2px] pointer-events-none">
@@ -126,11 +126,11 @@ export const WorldNav: React.FC<WorldNavProps> = ({ activeId }) => {
                 onClick={() => handleNavClick(sec.id)}
                 className="group flex items-center gap-3 py-1 cursor-pointer outline-none text-right"
               >
-                {/* Etiqueta tooltip expandible */}
+                {/* Etiqueta tooltip expandible (permanente en 2xl+, hover en xl para evitar solapar tarjetas en laptops 1280px) */}
                 <div
                   className={`font-mono-code text-[11px] px-2.5 py-1 rounded-md border transition-all duration-200 whitespace-nowrap shadow-md ${
                     isActive
-                      ? 'opacity-100 translate-x-0 bg-[#2E332E] border-[#00AB00] text-[#f0f6f0]'
+                      ? 'opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 2xl:opacity-100 2xl:translate-x-0 bg-[#2E332E] border-[#00AB00] text-[#f0f6f0]'
                       : 'opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 bg-[#161c16] border-[#00AB00]/20 text-[#9eb19e]'
                   }`}
                 >
@@ -159,20 +159,20 @@ export const WorldNav: React.FC<WorldNavProps> = ({ activeId }) => {
         </div>
       </nav>
 
-      {/* Navegación Inferior Sticky (Móvil y Tablets) */}
+      {/* Navegación Inferior Sticky (Celulares y iPad) */}
       <nav
         id="mobile-world-nav"
         aria-label="Mapa de Mundo Móvil"
-        className="xl:hidden fixed bottom-0 left-0 right-0 z-50 px-2 py-2.5 border-t border-[#00AB00]/25 bg-[#0f130f]/95 backdrop-blur-md"
+        className="xl:hidden fixed bottom-0 left-0 right-0 z-50 px-1.5 sm:px-4 pt-2 pb-[max(0.5rem,env(safe-area-inset-bottom))] border-t border-[#00AB00]/25 bg-[#0f130f]/95 backdrop-blur-md"
       >
-        <div className="max-w-md mx-auto flex items-center justify-around gap-1">
+        <div className="max-w-xl mx-auto grid grid-cols-6 gap-1">
           {WORLD_SECTIONS.map((sec) => {
             const isActive = sec.id === activeId;
             return (
               <button
                 key={sec.id}
                 onClick={() => handleNavClick(sec.id)}
-                className={`flex flex-col items-center gap-1 px-2 py-1.5 rounded-lg transition-all text-center min-w-[50px] ${
+                className={`flex flex-col items-center justify-center gap-1 px-1 sm:px-2 py-1.5 rounded-lg transition-all text-center cursor-pointer ${
                   isActive
                     ? 'bg-[#2E332E] text-[#00AB00] font-bold border border-[#00AB00]'
                     : 'text-[#9eb19e] hover:text-[#f0f6f0]'
@@ -183,7 +183,7 @@ export const WorldNav: React.FC<WorldNavProps> = ({ activeId }) => {
                     isActive ? 'bg-[#00AB00] scale-125' : 'bg-[#607560]'
                   }`}
                 />
-                <span className="text-[9px] font-mono-code uppercase tracking-wider leading-none">
+                <span className="text-[8px] sm:text-[10px] font-mono-code uppercase tracking-tight sm:tracking-wider leading-none truncate max-w-full">
                   {sec.shortLabel}
                 </span>
               </button>

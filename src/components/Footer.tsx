@@ -18,8 +18,8 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="relative z-10 border-t border-[#00AB00]/20 bg-[#0f130f] pt-12 pb-24 lg:pb-12 text-center">
-      <div className="max-w-5xl mx-auto px-6 flex flex-col items-center gap-6">
+    <footer className="relative z-10 border-t border-[#00AB00]/20 bg-[#0f130f] pt-12 pb-24 xl:pb-12 text-center">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col items-center gap-6">
         {/* Botón Volver Arriba */}
         <button
           onClick={scrollToTop}

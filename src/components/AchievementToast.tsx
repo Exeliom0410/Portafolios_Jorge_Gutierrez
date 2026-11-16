@@ -15,7 +15,7 @@ export const AchievementToast: React.FC<AchievementToastProps> = ({ visible, mes
   return (
     <div
       id="achievement-toast"
-      className={`fixed left-5 bottom-16 sm:bottom-6 z-50 flex items-center gap-3.5 px-4 py-3 rounded-2xl bg-[#1e261e] border-2 border-[#00AB00] shadow-[0_15px_35px_rgba(0,0,0,0.6)] transition-all duration-500 max-w-xs sm:max-w-sm ${
+      className={`fixed left-4 right-4 sm:right-auto sm:left-5 bottom-20 xl:bottom-6 z-50 flex items-center gap-3.5 px-4 py-3 rounded-2xl bg-[#1e261e] border-2 border-[#00AB00] shadow-[0_15px_35px_rgba(0,0,0,0.6)] transition-all duration-500 sm:max-w-sm ${
         visible ? 'translate-y-0 opacity-100' : 'translate-y-24 opacity-0 pointer-events-none'
       }`}
     >

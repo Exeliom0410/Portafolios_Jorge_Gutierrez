@@ -20,12 +20,14 @@
   --radius: 14px;
 }
 
+html,
 body {
   background: var(--bg);
   color: var(--text);
   font-family: 'Inter', sans-serif;
   line-height: 1.6;
-  overflow-x: hidden;
+  overflow-x: clip;
+  -webkit-text-size-adjust: 100%;
 }
 
 /* Tipografías especiales del juego */
